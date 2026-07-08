@@ -1,0 +1,80 @@
+{
+  "slug": "home",
+  "version": "1.0.0",
+  "bump": "major",
+  "contentHash": "fb6d9b07",
+  "createdAt": "2026-07-08T17:38:09.442Z",
+  "page": {
+    "pageId": "fixture-home",
+    "slug": "home",
+    "title": "Page Studio — Home",
+    "sections": [
+      {
+        "id": "hero-1",
+        "type": "hero",
+        "props": {
+          "eyebrow": "Schema-driven",
+          "heading": "Build landing pages that ship themselves ok",
+          "subheading": "Compose pages from validated sections, preview instantly, and publish immutable, versioned releases.",
+          "primaryCtaLabel": "Open the Studio",
+          "primaryCtaHref": "/studio/home",
+          "align": "center"
+        }
+      },
+      {
+        "id": "features-1",
+        "type": "featureGrid",
+        "props": {
+          "heading": "Engineered for correctness",
+          "subheading": "Every section is validated, typed, and registry-driven.",
+          "columns": 3,
+          "features": [
+            {
+              "title": "Zod-validated",
+              "description": "Runtime + compile-time safety.",
+              "icon": "ShieldCheck"
+            },
+            {
+              "title": "Versioned",
+              "description": "Deterministic SemVer on publish.",
+              "icon": "GitBranch"
+            },
+            {
+              "title": "Accessible",
+              "description": "WCAG 2.2 AAA-oriented.",
+              "icon": "Accessibility"
+            }
+          ]
+        }
+      },
+      {
+        "id": "quote-1",
+        "type": "testimonial",
+        "props": {
+          "quote": "Page Studio cut our launch time from days to minutes.",
+          "author": "Jordan Lee",
+          "role": "VP Engineering",
+          "company": "Northwind"
+        }
+      },
+      {
+        "id": "cta-1",
+        "type": "cta",
+        "props": {
+          "heading": "Ready to publish your first release?",
+          "description": "It takes less than a minute.",
+          "label": "Get started",
+          "href": "/studio/home"
+        }
+      }
+    ]
+  },
+  "changelog": [
+    {
+      "kind": "initial-release",
+      "severity": "major",
+      "detail": "Initial release"
+    }
+  ],
+  "publishedBy": "publisher@example.com"
+}

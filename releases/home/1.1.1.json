@@ -1,0 +1,120 @@
+{
+  "slug": "home",
+  "version": "1.1.1",
+  "bump": "patch",
+  "contentHash": "25d2fe69",
+  "createdAt": "2026-07-08T17:48:02.167Z",
+  "page": {
+    "pageId": "fixture-home",
+    "slug": "home",
+    "title": "Page Studio — Home",
+    "sections": [
+      {
+        "id": "hero-1",
+        "type": "hero",
+        "props": {
+          "eyebrow": "A NEW ERA OF CREATION",
+          "heading": "A brand new coding assistant experience!",
+          "subheading": "Page Studio allows you to orchestrate premium, schema-driven interfaces dynamically. Create, edit, and publish pixel-perfect experiences instantly.",
+          "primaryCtaLabel": "Launch Studio",
+          "primaryCtaHref": "/studio/home",
+          "align": "center"
+        }
+      },
+      {
+        "id": "features-1",
+        "type": "featureGrid",
+        "props": {
+          "heading": "Crafted for premium performance",
+          "subheading": "Designed with ultimate precision, safety-gated execution, and high-fidelity aesthetics.",
+          "columns": 3,
+          "features": [
+            {
+              "title": "Zod Invariance",
+              "description": "Runtime assertions secure correct data rendering.",
+              "icon": "ShieldCheck"
+            },
+            {
+              "title": "Immutable SemVer",
+              "description": "Every publish triggers deterministic release versions.",
+              "icon": "GitBranch"
+            },
+            {
+              "title": "High Accessibility",
+              "description": "Fully keyboard accessible, adhering to WCAG 2.2 AAA standards.",
+              "icon": "Accessibility"
+            }
+          ]
+        }
+      },
+      {
+        "id": "features-2",
+        "type": "featureGrid",
+        "props": {
+          "heading": "Dynamic Capabilities",
+          "subheading": "Accelerate your development cycle with powerful real-time tools.",
+          "columns": 2,
+          "features": [
+            {
+              "title": "Redux Engine",
+              "description": "Lightweight WYSIWYG-lite studio powered by Redux Toolkit.",
+              "icon": "Sliders"
+            },
+            {
+              "title": "Contentful Sync",
+              "description": "Isolated adapter client synchronizes content states instantly.",
+              "icon": "RefreshCw"
+            }
+          ]
+        }
+      },
+      {
+        "id": "quote-1",
+        "type": "testimonial",
+        "props": {
+          "quote": "The interface operates with remarkable fluidity. It transformed our engineering cycles completely.",
+          "author": "Marcus Aurelius",
+          "role": "Lead Platform Engineer",
+          "company": "Imagica Labs"
+        }
+      },
+      {
+        "id": "quote-2",
+        "type": "testimonial",
+        "props": {
+          "quote": "Deploying updates takes less than a minute. Absolute game-changer for landing page publishing.",
+          "author": "Cassius Clay",
+          "role": "Creative Director",
+          "company": "Awwwards Corp"
+        }
+      },
+      {
+        "id": "cta-1",
+        "type": "cta",
+        "props": {
+          "heading": "Ready to deploy your next design concept?",
+          "description": "Publish your changes in one click with automated version version control.",
+          "label": "Deploy Now",
+          "href": "/studio/home"
+        }
+      }
+    ]
+  },
+  "changelog": [
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "hero-1",
+      "prop": "eyebrow",
+      "detail": "Prop \"eyebrow\" changed on \"hero-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "hero-1",
+      "prop": "heading",
+      "detail": "Prop \"heading\" changed on \"hero-1\""
+    }
+  ],
+  "publishedBy": "publisher@example.com"
+}

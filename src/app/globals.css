@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Design tokens. Contrast pairs are chosen for WCAG 2.2 AAA where practical:
+ * body foreground/background exceeds 7:1 in both themes (verified with the
+ * tokens below). Brand accents are reserved for large text / non-text UI where
+ * AAA requires 3:1, keeping the palette vivid without sacrificing legibility.
+ */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 37% 5%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 240 37% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 37% 5%;
+
+    --primary: 240 100% 0%; /* Pure black button text/bg in light mode */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 96%;
+    --secondary-foreground: 240 37% 5%;
+
+    --muted: 240 10% 96%;
+    --muted-foreground: 240 10% 45%;
+
+    --accent: 217 91% 60%; /* Electric Blue */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 90%;
+    --input: 240 10% 90%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.875rem;
+  }
+
+  .dark {
+    --background: 240 37% 5%; /* Midnight Navy */
+    --foreground: 0 0% 98%;
+
+    --card: 240 37% 8%; /* Slightly lighter dark navy for cards */
+    --card-foreground: 0 0% 98%;
+    --popover: 240 37% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 100%; /* Pure white button text/bg in dark mode */
+    --primary-foreground: 240 37% 5%;
+
+    --secondary: 240 25% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 30% 12%;
+    --muted-foreground: 240 15% 70%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 240 37% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 240 37% 5%;
+
+    --border: 240 25% 18%;
+    --input: 240 25% 18%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  /* AAA: visible, high-contrast focus on every interactive element. */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* AAA 2.4.13: focus indicator is never fully hidden. */
+  ::selection {
+    @apply bg-primary/20;
+  }
+}
+
+/* prefers-reduced-motion: kill non-essential motion (Brief §7). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip-link helper. */
+.skip-link {
+  @apply absolute left-4 top-4 z-50 -translate-y-20 rounded-md bg-primary px-4 py-2 text-primary-foreground transition-transform focus-visible:translate-y-0;
+}
+
+/* ── Container-driven responsive layout ──────────────────────────────────────
+   Rendered pages respond to the *frame* width, not the browser window. The
+   /preview <main> and the Studio canvas frame are marked `.device-frame`, so
+   the Studio's viewport switcher (which constrains the frame width) reflects
+   real device layout instead of the desktop window. On /preview the frame is
+   full-width, so this also yields correct layout on real phones/tablets. */
+.device-frame {
+  container: device / inline-size;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@container device (min-width: 560px) {
+  .feature-grid[data-cols="4"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@container device (min-width: 672px) {
+  .feature-grid[data-cols="2"],
+  .feature-grid[data-cols="3"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@container device (min-width: 1024px) {
+  .feature-grid[data-cols="3"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .feature-grid[data-cols="4"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Fallback for when no container ancestor exists (defensive): a wide viewport
+   still gets multiple columns so the grid is never stuck single-column. */
+@supports not (container-type: inline-size) {
+  @media (min-width: 768px) {
+    .feature-grid[data-cols="2"],
+    .feature-grid[data-cols="3"] {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1024px) {
+    .feature-grid[data-cols="3"] {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .feature-grid[data-cols="4"] {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}
+
+/* ─── Elegant Themed Scrollbars ──────────────────────────────────────────────
+   Matches the active theme/mode colors automatically using HSL CSS tokens. */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border) / 0.8);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Firefox support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border) / 0.8) transparent;
+}
+
+/* Scrollbar hide helper */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

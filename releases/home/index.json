@@ -1,0 +1,78 @@
+{
+  "slug": "home",
+  "latest": "2.1.2",
+  "releases": [
+    {
+      "version": "2.1.2",
+      "createdAt": "2026-07-08T19:12:37.475Z",
+      "bump": "patch",
+      "contentHash": "ec7d13a4",
+      "publishedBy": "publisher@example.com",
+      "summary": "1 patch"
+    },
+    {
+      "version": "2.1.1",
+      "createdAt": "2026-07-08T18:58:51.937Z",
+      "bump": "patch",
+      "contentHash": "c2a2c617",
+      "publishedBy": "publisher@example.com",
+      "summary": "1 patch"
+    },
+    {
+      "version": "2.1.0",
+      "createdAt": "2026-07-08T18:58:16.249Z",
+      "bump": "minor",
+      "contentHash": "ec7d13a4",
+      "publishedBy": "publisher@example.com",
+      "summary": "1 patch, 1 minor"
+    },
+    {
+      "version": "2.0.0",
+      "createdAt": "2026-07-08T18:45:42.168Z",
+      "bump": "major",
+      "contentHash": "b8194797",
+      "publishedBy": "publisher@example.com",
+      "summary": "3 patch, 1 major"
+    },
+    {
+      "version": "1.1.3",
+      "createdAt": "2026-07-08T18:20:36.262Z",
+      "bump": "patch",
+      "contentHash": "630e6a6d",
+      "publishedBy": "publisher@example.com",
+      "summary": "1 patch"
+    },
+    {
+      "version": "1.1.2",
+      "createdAt": "2026-07-08T18:16:11.441Z",
+      "bump": "patch",
+      "contentHash": "e78a07de",
+      "publishedBy": "publisher@example.com",
+      "summary": "2 patch"
+    },
+    {
+      "version": "1.1.1",
+      "createdAt": "2026-07-08T17:48:02.167Z",
+      "bump": "patch",
+      "contentHash": "25d2fe69",
+      "publishedBy": "publisher@example.com",
+      "summary": "2 patch"
+    },
+    {
+      "version": "1.1.0",
+      "createdAt": "2026-07-08T17:39:40.005Z",
+      "bump": "minor",
+      "contentHash": "7ed97573",
+      "publishedBy": "publisher@example.com",
+      "summary": "14 patch, 2 minor"
+    },
+    {
+      "version": "1.0.0",
+      "createdAt": "2026-07-08T17:38:09.442Z",
+      "bump": "major",
+      "contentHash": "fb6d9b07",
+      "publishedBy": "publisher@example.com",
+      "summary": "1 major"
+    }
+  ]
+}

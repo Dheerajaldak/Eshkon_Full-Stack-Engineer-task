@@ -1,0 +1,216 @@
+{
+  "slug": "home",
+  "version": "1.1.0",
+  "bump": "minor",
+  "contentHash": "7ed97573",
+  "createdAt": "2026-07-08T17:39:40.005Z",
+  "page": {
+    "pageId": "fixture-home",
+    "slug": "home",
+    "title": "Page Studio — Home",
+    "sections": [
+      {
+        "id": "hero-1",
+        "type": "hero",
+        "props": {
+          "eyebrow": "A NEW ERA OF CREATION yes its",
+          "heading": "A new way to think and build with computers",
+          "subheading": "Page Studio allows you to orchestrate premium, schema-driven interfaces dynamically. Create, edit, and publish pixel-perfect experiences instantly.",
+          "primaryCtaLabel": "Launch Studio",
+          "primaryCtaHref": "/studio/home",
+          "align": "center"
+        }
+      },
+      {
+        "id": "features-1",
+        "type": "featureGrid",
+        "props": {
+          "heading": "Crafted for premium performance",
+          "subheading": "Designed with ultimate precision, safety-gated execution, and high-fidelity aesthetics.",
+          "columns": 3,
+          "features": [
+            {
+              "title": "Zod Invariance",
+              "description": "Runtime assertions secure correct data rendering.",
+              "icon": "ShieldCheck"
+            },
+            {
+              "title": "Immutable SemVer",
+              "description": "Every publish triggers deterministic release versions.",
+              "icon": "GitBranch"
+            },
+            {
+              "title": "High Accessibility",
+              "description": "Fully keyboard accessible, adhering to WCAG 2.2 AAA standards.",
+              "icon": "Accessibility"
+            }
+          ]
+        }
+      },
+      {
+        "id": "features-2",
+        "type": "featureGrid",
+        "props": {
+          "heading": "Dynamic Capabilities",
+          "subheading": "Accelerate your development cycle with powerful real-time tools.",
+          "columns": 2,
+          "features": [
+            {
+              "title": "Redux Engine",
+              "description": "Lightweight WYSIWYG-lite studio powered by Redux Toolkit.",
+              "icon": "Sliders"
+            },
+            {
+              "title": "Contentful Sync",
+              "description": "Isolated adapter client synchronizes content states instantly.",
+              "icon": "RefreshCw"
+            }
+          ]
+        }
+      },
+      {
+        "id": "quote-1",
+        "type": "testimonial",
+        "props": {
+          "quote": "The interface operates with remarkable fluidity. It transformed our engineering cycles completely.",
+          "author": "Marcus Aurelius",
+          "role": "Lead Platform Engineer",
+          "company": "Imagica Labs"
+        }
+      },
+      {
+        "id": "quote-2",
+        "type": "testimonial",
+        "props": {
+          "quote": "Deploying updates takes less than a minute. Absolute game-changer for landing page publishing.",
+          "author": "Cassius Clay",
+          "role": "Creative Director",
+          "company": "Awwwards Corp"
+        }
+      },
+      {
+        "id": "cta-1",
+        "type": "cta",
+        "props": {
+          "heading": "Ready to deploy your next design concept?",
+          "description": "Publish your changes in one click with automated version version control.",
+          "label": "Deploy Now",
+          "href": "/studio/home"
+        }
+      }
+    ]
+  },
+  "changelog": [
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "hero-1",
+      "prop": "eyebrow",
+      "detail": "Prop \"eyebrow\" changed on \"hero-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "hero-1",
+      "prop": "heading",
+      "detail": "Prop \"heading\" changed on \"hero-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "hero-1",
+      "prop": "subheading",
+      "detail": "Prop \"subheading\" changed on \"hero-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "hero-1",
+      "prop": "primaryCtaLabel",
+      "detail": "Prop \"primaryCtaLabel\" changed on \"hero-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "features-1",
+      "prop": "heading",
+      "detail": "Prop \"heading\" changed on \"features-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "features-1",
+      "prop": "subheading",
+      "detail": "Prop \"subheading\" changed on \"features-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "features-1",
+      "prop": "features",
+      "detail": "Prop \"features\" changed on \"features-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "quote-1",
+      "prop": "quote",
+      "detail": "Prop \"quote\" changed on \"quote-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "quote-1",
+      "prop": "author",
+      "detail": "Prop \"author\" changed on \"quote-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "quote-1",
+      "prop": "role",
+      "detail": "Prop \"role\" changed on \"quote-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "quote-1",
+      "prop": "company",
+      "detail": "Prop \"company\" changed on \"quote-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "cta-1",
+      "prop": "heading",
+      "detail": "Prop \"heading\" changed on \"cta-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "cta-1",
+      "prop": "description",
+      "detail": "Prop \"description\" changed on \"cta-1\""
+    },
+    {
+      "kind": "prop-changed",
+      "severity": "patch",
+      "sectionId": "cta-1",
+      "prop": "label",
+      "detail": "Prop \"label\" changed on \"cta-1\""
+    },
+    {
+      "kind": "section-added",
+      "severity": "minor",
+      "sectionId": "features-2",
+      "detail": "Section \"features-2\" (featureGrid) added"
+    },
+    {
+      "kind": "section-added",
+      "severity": "minor",
+      "sectionId": "quote-2",
+      "detail": "Section \"quote-2\" (testimonial) added"
+    }
+  ],
+  "publishedBy": "publisher@example.com"
+}
