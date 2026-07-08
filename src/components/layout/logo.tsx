@@ -12,8 +12,8 @@ export function Logo({ className }: { className?: string }) {
     >
       <defs>
         <linearGradient id="logo-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-          <stop stop-color="hsl(217 91% 60%)" />
-          <stop offset="1" stop-color="hsl(265 90% 60%)" />
+          <stop stopColor="hsl(217 91% 60%)" />
+          <stop offset="1" stopColor="hsl(265 90% 60%)" />
         </linearGradient>
       </defs>
       <rect width="32" height="32" rx="8" fill="url(#logo-grad)" />

@@ -25,7 +25,7 @@ export function HeroSection({ props }: { props: HeroProps }) {
         )}
       >
         {props.eyebrow ? (
-          <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-sm font-medium text-accent">
+          <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 dark:border-accent/20 dark:bg-accent/10 px-4 py-1.5 text-sm font-medium text-blue-800 dark:text-accent">
             {props.eyebrow}
           </span>
         ) : null}
