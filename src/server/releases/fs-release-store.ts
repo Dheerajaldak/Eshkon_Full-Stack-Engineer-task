@@ -26,16 +26,14 @@ import {
  * local dev, CI, and self-hosted deploys, and keeps the audit trail in-repo.
  */
 export class FsReleaseStore implements ReleaseStore {
-  constructor(private readonly rootDir = path.join(process.cwd(), "releases")) {}
+  private readonly readRootDir: string;
+  private readonly writeRootDir: string;
 
-  private dirFor(slug: string) {
-    return path.join(this.rootDir, sanitizeSlug(slug));
-  }
-  private fileFor(slug: string, version: string) {
-    return path.join(this.dirFor(slug), `${version}.json`);
-  }
-  private indexFile(slug: string) {
-    return path.join(this.dirFor(slug), "index.json");
+  constructor() {
+    this.readRootDir = path.join(process.cwd(), "releases");
+    this.writeRootDir = process.env.VERCEL
+      ? path.join("/tmp", "releases")
+      : this.readRootDir;
   }
 
   async getLatest(slug: string): Promise<ReleaseSnapshot | null> {
@@ -46,8 +44,15 @@ export class FsReleaseStore implements ReleaseStore {
 
   async getVersion(slug: string, version: string): Promise<ReleaseSnapshot | null> {
     try {
-      const raw = await fs.readFile(this.fileFor(slug, version), "utf8");
-      return JSON.parse(raw) as ReleaseSnapshot;
+      const writePath = path.join(this.writeRootDir, sanitizeSlug(slug), `${version}.json`);
+      try {
+        const raw = await fs.readFile(writePath, "utf8");
+        return JSON.parse(raw) as ReleaseSnapshot;
+      } catch {
+        const readPath = path.join(this.readRootDir, sanitizeSlug(slug), `${version}.json`);
+        const raw = await fs.readFile(readPath, "utf8");
+        return JSON.parse(raw) as ReleaseSnapshot;
+      }
     } catch {
       return null;
     }
@@ -55,8 +60,15 @@ export class FsReleaseStore implements ReleaseStore {
 
   async list(slug: string): Promise<ReleaseIndex> {
     try {
-      const raw = await fs.readFile(this.indexFile(slug), "utf8");
-      return JSON.parse(raw) as ReleaseIndex;
+      const writePath = path.join(this.writeRootDir, sanitizeSlug(slug), "index.json");
+      try {
+        const raw = await fs.readFile(writePath, "utf8");
+        return JSON.parse(raw) as ReleaseIndex;
+      } catch {
+        const readPath = path.join(this.readRootDir, sanitizeSlug(slug), "index.json");
+        const raw = await fs.readFile(readPath, "utf8");
+        return JSON.parse(raw) as ReleaseIndex;
+      }
     } catch {
       return { slug, latest: null, releases: [] };
     }
@@ -64,11 +76,18 @@ export class FsReleaseStore implements ReleaseStore {
 
   async save(snapshot: ReleaseSnapshot): Promise<void> {
     const { slug, version } = snapshot;
-    await fs.mkdir(this.dirFor(slug), { recursive: true });
+    const writeDir = path.join(this.writeRootDir, sanitizeSlug(slug));
+    await fs.mkdir(writeDir, { recursive: true });
 
-    // "wx" → write, fail if exists. Enforces immutability at the OS level.
+    const writePath = path.join(writeDir, `${version}.json`);
+
+    const existing = await this.getVersion(slug, version);
+    if (existing) {
+      throw new ImmutableReleaseError(slug, version);
+    }
+
     try {
-      await fs.writeFile(this.fileFor(slug, version), JSON.stringify(snapshot, null, 2), {
+      await fs.writeFile(writePath, JSON.stringify(snapshot, null, 2), {
         flag: "wx",
       });
     } catch (err) {
@@ -93,7 +112,8 @@ export class FsReleaseStore implements ReleaseStore {
     };
     index.releases = [meta, ...index.releases.filter((r) => r.version !== meta.version)];
     index.latest = snapshot.version;
-    await fs.writeFile(this.indexFile(snapshot.slug), JSON.stringify(index, null, 2), "utf8");
+    const writePath = path.join(this.writeRootDir, sanitizeSlug(snapshot.slug), "index.json");
+    await fs.writeFile(writePath, JSON.stringify(index, null, 2), "utf8");
   }
 }
 
