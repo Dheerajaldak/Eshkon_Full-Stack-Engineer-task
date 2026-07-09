@@ -126,7 +126,7 @@ export function LoginForm({ from }: { from: string }) {
             {showPassword ? <EyeOff className="size-4" aria-hidden /> : <Eye className="size-4" aria-hidden />}
           </button>
         </div>
-        <p id="password-hint" className="text-xs text-white/40 px-1">
+        <p id="password-hint" className="text-xs text-white/60 px-1">
          Password is automatically set for you. Just click <strong>Sign in</strong> below!
         </p>
       </div>

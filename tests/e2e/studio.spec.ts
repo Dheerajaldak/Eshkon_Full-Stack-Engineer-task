@@ -45,7 +45,7 @@ test.describe("Studio editor (Brief §3, §5)", () => {
     await expect(dialog.getByText(/next version/i)).toBeVisible();
     await dialog.getByRole("button", { name: /publish release/i }).click();
 
-    await expect(page.getByText(/published v\d+\.\d+\.\d+/i)).toBeVisible();
+    await expect(page.getByText(/published v\d+\.\d+\.\d+/i).first()).toBeVisible();
   });
 
   test("has no critical/serious accessibility violations", async ({ page }) => {

@@ -19,7 +19,7 @@ export const FIXTURE_PAGES: Record<string, RawPage> = {
         type: "hero",
         props: {
           eyebrow: "A NEW ERA OF CREATION",
-          heading: "A new way to think and build with computers",
+          heading: "Build landing pages that ship themselves ok",
           subheading:
             "Page Studio allows you to orchestrate premium, schema-driven interfaces dynamically. Create, edit, and publish pixel-perfect experiences instantly.",
           primaryCtaLabel: "Launch Studio",
@@ -31,7 +31,7 @@ export const FIXTURE_PAGES: Record<string, RawPage> = {
         id: "features-1",
         type: "featureGrid",
         props: {
-          heading: "Crafted for premium performance",
+          heading: "Engineered for correctness",
           subheading: "Designed with ultimate precision, safety-gated execution, and high-fidelity aesthetics.",
           columns: 3,
           features: [
@@ -80,9 +80,14 @@ export const FIXTURE_PAGES: Record<string, RawPage> = {
         props: {
           heading: "Ready to deploy your next design concept?",
           description: "Publish your changes in one click with automated version version control.",
-          label: "Deploy Now",
+          label: "Get started",
           href: "/studio/home",
         },
+      },
+      {
+        id: "marquee-1",
+        type: "marquee",
+        props: {},
       },
     ],
   },

@@ -9,6 +9,23 @@ export const AXE_TAGS = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa", "best-prac
 /** Log in through the real /login form so RBAC is exercised end to end. */
 export async function login(page: Page, role: DemoRole, from = "/") {
   await page.goto(`/login?from=${encodeURIComponent(from)}`);
+
+  // Check if we are already signed in
+  const mainLocator = page.locator("main");
+  const mainText = await mainLocator.innerText().catch(() => "");
+  if (mainText.includes("You are currently signed in as:")) {
+    if (mainText.toLowerCase().includes(role.toLowerCase())) {
+      // Already signed in as the correct role, just navigate to the destination
+      await page.goto(from);
+      return;
+    } else {
+      // Signed in as a different role, sign out first
+      await page.getByRole("button", { name: /sign out/i }).click();
+      await expect(page.getByRole("button", { name: /sign out/i })).toBeHidden();
+      await page.goto(`/login?from=${encodeURIComponent(from)}`);
+    }
+  }
+
   await page.selectOption("#role", role);
   await page.fill("#password", role);
   await page.getByRole("button", { name: /sign in/i }).click();
